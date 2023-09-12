@@ -23,6 +23,10 @@ export const CommandMenu = styled.div`
     text-align: left;
     cursor: pointer;
 
+    transition: opacity 0.4s all;
+    user-select: none;
+    border: 0;
+
     display: flex;
     align-items: center;
     gap: 8px;

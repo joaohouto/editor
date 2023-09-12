@@ -24,8 +24,8 @@ function App() {
       <Toaster />
       <Editor
         defaultContent={content}
+        onUpdate={(data) => console.log(data)}
         fileUploader={fileUploader}
-        onUpdate={(data) => null}
       />
     </div>
   );

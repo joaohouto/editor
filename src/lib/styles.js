@@ -1,10 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+
   .ProseMirror {
     padding: 24px;
     width: 100%;
     min-height: 50vh;
+  }
+
+  button {
+    transition: opacity 0.4s all;
+    cursor: pointer;
+    user-select: none;
+    border: 0;
   }
 
   div {

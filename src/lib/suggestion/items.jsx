@@ -1,7 +1,5 @@
 import { toast } from "react-hot-toast";
 import {
-  RiCheckLine,
-  RiCheckboxFill,
   RiCheckboxLine,
   RiH1,
   RiH2,
@@ -110,7 +108,7 @@ const getSuggestionItems = ({ query, fileUploader }) => {
       icon: <RiImageFill size={16} />,
       command: ({ editor, range }) => {
         toast.promise(
-          fileUploader().then((response) => {
+          imageUploader().then((response) => {
             editor
               .chain()
               .focus()

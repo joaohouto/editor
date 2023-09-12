@@ -1,6 +1,7 @@
-import React from "react";
-import { EditorProvider } from "@tiptap/react";
+import React, { useCallback, useRef } from "react";
+import PropTypes from "prop-types";
 
+import { EditorProvider } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Highlight from "@tiptap/extension-highlight";
 import Link from "@tiptap/extension-link";
@@ -17,7 +18,6 @@ import BubbleToolbar from "./BubbleToolbar";
 import Commands from "./suggestion/commands";
 import getSuggestionItems from "./suggestion/items";
 import renderItems from "./suggestion/renderItems";
-import { useCallback, useRef } from "react";
 
 const CustomImage = Image.extend({
   addAttributes() {
@@ -56,32 +56,32 @@ const CustomImage = Image.extend({
   },
 });
 
-function Editor({ defaultContent, onUpdate, fileUploader }) {
+function Editor({ defaultContent, onUpdate, imageUploader }) {
   const extensions = [
     StarterKit,
+    Typography,
+    TextStyle,
+    Link,
     Highlight.configure({
       multicolor: true,
     }),
-    Typography,
-    CustomImage,
     Color.configure({
       types: ["textStyle"],
     }),
-    TextStyle,
-    Link,
+    CustomImage,
     TaskList,
     TaskItem.configure({
       nested: true,
     }),
     Commands.configure({
       suggestion: {
-        items: ({ query }) => getSuggestionItems({ query, fileUploader }),
+        items: ({ query }) => getSuggestionItems({ query, imageUploader }),
         render: renderItems,
       },
     }),
   ];
 
-  const previousImages = useRef([]);
+  /*  const previousImages = useRef([]);
 
   const checkForNodeDeletions = useCallback(({ editor }) => {
     const content = editor.getJSON().content;
@@ -97,7 +97,7 @@ function Editor({ defaultContent, onUpdate, fileUploader }) {
     }
 
     previousImages.current = images;
-  }, []);
+  }, []); */
 
   return (
     <Container>
@@ -113,5 +113,11 @@ function Editor({ defaultContent, onUpdate, fileUploader }) {
     </Container>
   );
 }
+
+Editor.propTypes = {
+  defaultContent: PropTypes.string,
+  onUpdate: PropTypes.func,
+  imageUploader: PropTypes.func,
+};
 
 export { Editor };
