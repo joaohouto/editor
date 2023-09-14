@@ -21,7 +21,7 @@ export default function LinkSelector({ open, setOpen }) {
           }
         }}
         title="Link"
-        className={(editor.getAttributes("link").href || open) && "is-active"}
+        className={editor.getAttributes("link").href || open ? "is-active" : ""}
       >
         {editor.getAttributes("link").href ? (
           <RiLinkUnlink size={16} />

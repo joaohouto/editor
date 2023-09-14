@@ -3,7 +3,7 @@ import { Editor } from "./lib";
 
 const content = `
 
-Comece a escrever algo...
+<p>Olá, mundo!</p>
 
 `;
 
@@ -24,7 +24,7 @@ function App() {
       <Toaster />
       <Editor
         defaultContent={content}
-        onUpdate={(data) => console.log(data)}
+        onUpdate={({ editor }) => console.log(editor.getHTML())}
         fileUploader={fileUploader}
       />
     </div>

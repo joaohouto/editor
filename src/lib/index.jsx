@@ -11,6 +11,7 @@ import Typography from "@tiptap/extension-typography";
 import Image from "@tiptap/extension-image";
 import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
+import Placeholder from "@tiptap/extension-placeholder";
 
 import { Container } from "./styles";
 import BubbleToolbar from "./BubbleToolbar";
@@ -56,7 +57,7 @@ const CustomImage = Image.extend({
   },
 });
 
-function Editor({ defaultContent, onUpdate, imageUploader }) {
+function Editor({ defaultContent, onUpdate, placeholder, imageUploader }) {
   const extensions = [
     StarterKit,
     Typography,
@@ -78,6 +79,10 @@ function Editor({ defaultContent, onUpdate, imageUploader }) {
         items: ({ query }) => getSuggestionItems({ query, imageUploader }),
         render: renderItems,
       },
+    }),
+    Placeholder.configure({
+      emptyEditorClass: "is-editor-empty",
+      placeholder: "Adicione mais detalhes aqui...",
     }),
   ];
 
@@ -104,8 +109,8 @@ function Editor({ defaultContent, onUpdate, imageUploader }) {
       <EditorProvider
         extensions={extensions}
         content={defaultContent}
-        onUpdate={(e) => {
-          onUpdate(e.editor.getHTML());
+        onUpdate={(data) => {
+          onUpdate(data);
         }}
       >
         <BubbleToolbar />
@@ -117,6 +122,7 @@ function Editor({ defaultContent, onUpdate, imageUploader }) {
 Editor.propTypes = {
   defaultContent: PropTypes.string,
   onUpdate: PropTypes.func,
+  placeholder: PropTypes.string,
   imageUploader: PropTypes.func,
 };
 

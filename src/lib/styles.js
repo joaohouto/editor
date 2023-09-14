@@ -6,6 +6,8 @@ export const Container = styled.div`
   border: 0;
   box-sizing: border-box;
 
+  color: var(--text);
+
   .ProseMirror {
     padding: 24px;
     width: 100%;

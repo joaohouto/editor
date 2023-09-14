@@ -10,74 +10,74 @@ const TEXT_COLORS = [
   },
   {
     name: "Roxo",
-    color: "#9333EA",
+    color: "var(--purple-text)",
   },
   {
     name: "Vermelho",
-    color: "#E00000",
+    color: "var(--red-text)",
   },
   {
     name: "Amarelo",
-    color: "#EAB308",
+    color: "var(--yellow-text)",
   },
   {
     name: "Azul",
-    color: "#2563EB",
+    color: "var(--blue-text)",
   },
   {
     name: "Verde",
-    color: "#008A00",
+    color: "var(--green-text)",
   },
   {
     name: "Laranja",
-    color: "#FFA500",
+    color: "var(--orange-text)",
   },
   {
     name: "Rosa",
-    color: "#BA4081",
+    color: "var(--pink-text)",
   },
   {
     name: "Cinza",
-    color: "#A8A29E",
+    color: "var(--gray-text)",
   },
 ];
 
 const HIGHLIGHT_COLORS = [
   {
     name: "Padrão",
-    color: "#fff",
+    color: "var(--background)",
   },
   {
     name: "Roxo",
-    color: "#f6f3f8",
+    color: "var(--purple-background)",
   },
   {
     name: "Vermelho",
-    color: "#fdebeb",
+    color: "var(--red-background)",
   },
   {
     name: "Amarelo",
-    color: "#fbf4a2",
+    color: "var(--yellow-background)",
   },
   {
     name: "Azul",
-    color: "#c1ecf9",
+    color: "var(--blue-background)",
   },
   {
     name: "Verde",
-    color: "#acf79f",
+    color: "var(--green-background)",
   },
   {
     name: "Laranja",
-    color: "#faebdd",
+    color: "var(--orange-background)",
   },
   {
     name: "Rosa",
-    color: "#faf1f5",
+    color: "var(--pink-background)",
   },
   {
     name: "Cinza",
-    color: "#f1f1ef",
+    color: "var(--gray-background)",
   },
 ];
 

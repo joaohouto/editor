@@ -241,5 +241,7 @@ export const LinkMenu = styled.form`
     padding: 6px 12px;
     border-radius: 4px;
     border: 1px solid var(--grayE);
+    color: var(--text);
+    background: var(--background);
   }
 `;
