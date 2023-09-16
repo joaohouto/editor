@@ -2,14 +2,18 @@
 
 > ⚠️ Hey, this is an experimental package! So, some things can't work properly.
 
+## About
+
 `@joaohouto/editor` is a rich text editor React component built with [Tiptap](https://tiptap.dev/) packages. It provides a powerful and flexible solution for integrating rich text editing capabilities into your React applications.
+
+You can try this package here: https://codesandbox.io/s/editor-4kvd84.
 
 ## Installation
 
 You can install the `@joaohouto/editor` package via npm or yarn:
 
 ```bash
-npm install @joaohouto/editor
+npm i @joaohouto/editor
 # OR
 yarn add @joaohouto/editor
 ```
@@ -50,7 +54,7 @@ The `Editor` component has the following props:
 Also, some colors need to be provided by a `:root` CSS tag in order to Editor work properly. Here they are:
 
 ```css
-/* Your global css file */
+/* Your global CSS file */
 :root {
   --info: #0075ff;
 

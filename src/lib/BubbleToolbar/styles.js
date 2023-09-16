@@ -21,6 +21,7 @@ export const BubbleContainer = styled.div`
     gap: 4px;
     font-size: 12px;
     cursor: pointer;
+    transition: 0.2s ease;
 
     display: flex;
     flex-direction: row;
@@ -100,14 +101,14 @@ export const TransformContainer = styled.div`
       > div {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
       }
 
       .icon-box {
         height: 24px;
         width: 24px;
-        border: 1px solid var(--grayD);
-        border-radius: 6px;
+        border: 1px solid var(--grayE);
+        border-radius: 4px;
         background: var(--background);
 
         display: flex;
@@ -173,10 +174,11 @@ export const ColorContainer = styled.div`
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
     .label {
-      font-size: 12px;
+      font-size: 10px;
       color: var(--secondary-text);
       font-weight: 500;
-      padding: 4px 6px;
+      padding: 8px 6px;
+      text-transform: uppercase;
     }
 
     button {
@@ -200,15 +202,15 @@ export const ColorContainer = styled.div`
       > div {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
       }
 
       .icon-box {
         height: 24px;
         width: 24px;
-        border: 1px solid var(--grayD);
-        border-radius: 6px;
+        border-radius: 4px;
         background: var(--background);
+        font-size: 14px;
 
         font-weight: 500;
 

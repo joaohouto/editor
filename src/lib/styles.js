@@ -14,6 +14,14 @@ export const Container = styled.div`
     min-height: 50vh;
   }
 
+  .tiptap p.is-editor-empty:first-child::before {
+    color: var(--secondary-text);
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
   button {
     transition: opacity 0.4s all;
     cursor: pointer;
@@ -27,6 +35,7 @@ export const Container = styled.div`
 
   p {
     line-height: 150%;
+    margin: 1em 0;
   }
 
   ul,
@@ -155,11 +164,15 @@ export const Container = styled.div`
   .image {
     width: 100%;
 
-    border: 1px solid var(--grayE);
-    border-radius: 8px;
-
     display: flex;
     align-items: center;
     justify-content: center;
+
+    > img {
+      border-radius: 4px;
+
+      width: 100%;
+      max-width: 400px;
+    }
   }
 `;

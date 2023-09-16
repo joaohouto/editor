@@ -87,6 +87,12 @@ export default function NodeSelector({ open, setOpen }) {
       command: () => editor.chain().focus().toggleCodeBlock().run(),
       isActive: () => editor.isActive("codeBlock"),
     },
+    {
+      name: "Imagem",
+      icon: <RiCodeLine size={12} />,
+      command: () => editor.chain().focus().toggleCodeBlock().run(),
+      isActive: () => editor.isActive("codeBlock"),
+    },
   ];
 
   const activeItem = items.filter((item) => item.isActive()).pop() ?? {

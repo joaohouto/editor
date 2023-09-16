@@ -10,7 +10,7 @@ import {
   RiQuoteText,
 } from "react-icons/ri";
 
-const getSuggestionItems = ({ query, fileUploader }) => {
+const getSuggestionItems = ({ query, imageUploader }) => {
   return [
     {
       title: "Título 1",
@@ -101,13 +101,24 @@ const getSuggestionItems = ({ query, fileUploader }) => {
           .run(),
     },
 
-    /* {
+    {
       title: "Imagem",
       description: "Faça o upload de alguma imagem.",
       searchTerms: ["imagem"],
       icon: <RiImageFill size={16} />,
       command: ({ editor, range }) => {
-        toast.promise(
+        const url = window.prompt("URL da imagem");
+
+        if (url) {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setImage({ src: url })
+            .run();
+        }
+
+        /* toast.promise(
           imageUploader().then((response) => {
             editor
               .chain()
@@ -121,9 +132,9 @@ const getSuggestionItems = ({ query, fileUploader }) => {
             success: "Arquivo carregado",
             error: "Erro ao carregar arquivo",
           }
-        );
+        ); */
       },
-    }, */
+    },
   ].filter((item) => {
     if (typeof query === "string" && query.length > 0) {
       const search = query.toLowerCase();

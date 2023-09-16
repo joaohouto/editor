@@ -1,11 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import { Editor } from "./lib";
 
-const content = `
-
-<p>Olá, mundo!</p>
-
-`;
+const content = ``;
 
 function fileUploader() {
   return new Promise((resolve, reject) => {
@@ -26,6 +22,7 @@ function App() {
         defaultContent={content}
         onUpdate={({ editor }) => console.log(editor.getHTML())}
         fileUploader={fileUploader}
+        placeholder="Comece a escrever..."
       />
     </div>
   );

@@ -8,10 +8,11 @@ import Link from "@tiptap/extension-link";
 import TaskList from "@tiptap/extension-task-list";
 import TaskItem from "@tiptap/extension-task-item";
 import Typography from "@tiptap/extension-typography";
-import Image from "@tiptap/extension-image";
 import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
 import Placeholder from "@tiptap/extension-placeholder";
+
+import CustomImage from "./Extensions/CustomImage";
 
 import { Container } from "./styles";
 import BubbleToolbar from "./BubbleToolbar";
@@ -20,49 +21,14 @@ import Commands from "./suggestion/commands";
 import getSuggestionItems from "./suggestion/items";
 import renderItems from "./suggestion/renderItems";
 
-const CustomImage = Image.extend({
-  addAttributes() {
-    return {
-      ...this.parent?.(),
-      width: {
-        default: null,
-      },
-      height: {
-        default: null,
-      },
-    };
-  },
-  addNodeView() {
-    return ({
-      editor,
-      node,
-      getPos,
-      HTMLAttributes,
-      decorations,
-      extension,
-    }) => {
-      const container = document.createElement("div");
-
-      container.className = "image";
-
-      let content = document.createElement("img");
-      content.src = node.attrs.src;
-      container.append(content);
-
-      return {
-        dom: container,
-        contentDOM: content,
-      };
-    };
-  },
-});
-
 function Editor({ defaultContent, onUpdate, placeholder, imageUploader }) {
   const extensions = [
     StarterKit,
     Typography,
     TextStyle,
-    Link,
+    Link.extend({
+      inclusive: false,
+    }),
     Highlight.configure({
       multicolor: true,
     }),
@@ -81,8 +47,7 @@ function Editor({ defaultContent, onUpdate, placeholder, imageUploader }) {
       },
     }),
     Placeholder.configure({
-      emptyEditorClass: "is-editor-empty",
-      placeholder: "Adicione mais detalhes aqui...",
+      placeholder,
     }),
   ];
 
