@@ -2,6 +2,7 @@ import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
 import { RiArrowDownSLine, RiCheckLine } from "react-icons/ri";
 import { ColorContainer } from "./styles";
+import * as Popover from "@radix-ui/react-popover";
 
 const TEXT_COLORS = [
   {
@@ -98,26 +99,26 @@ export default function ColorSelector({ open, setOpen }) {
 
   return (
     <ColorContainer>
-      <button
-        className="tool-button"
-        onClick={() => setOpen(!open)}
-        title="Cor do texto"
-      >
-        <span
-          className="icon"
-          style={{
-            color: activeColorItem?.color,
-            backgroundColor: activeHighlightItem?.color,
-          }}
+      <Popover.Root open={open}>
+        <Popover.Trigger
+          className="tool-button"
+          onClick={() => setOpen(!open)}
+          title="Cor do texto"
         >
-          A
-        </span>
+          <span
+            className="icon"
+            style={{
+              color: activeColorItem?.color,
+              backgroundColor: activeHighlightItem?.color,
+            }}
+          >
+            A
+          </span>
 
-        <RiArrowDownSLine size={16} />
-      </button>
+          <RiArrowDownSLine size={16} />
+        </Popover.Trigger>
 
-      {open && (
-        <div className="dropdown">
+        <Popover.Content className="dropdown">
           <div className="label">Texto</div>
 
           {TEXT_COLORS.map(({ name, color }, index) => (
@@ -172,8 +173,8 @@ export default function ColorSelector({ open, setOpen }) {
               )}
             </button>
           ))}
-        </div>
-      )}
+        </Popover.Content>
+      </Popover.Root>
     </ColorContainer>
   );
 }

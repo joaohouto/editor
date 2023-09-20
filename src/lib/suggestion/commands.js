@@ -2,12 +2,11 @@ import { Extension } from "@tiptap/core";
 import Suggestion from "@tiptap/suggestion";
 
 const Commands = Extension.create({
-  name: "mention",
+  name: "slash-command",
 
   addOptions: {
     suggestion: {
       char: "/",
-      startOfLine: false,
       command: ({ editor, range, props }) => {
         props.command({ editor, range, props });
       },

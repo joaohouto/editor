@@ -2,6 +2,7 @@ import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
 import { RiLink, RiLinkUnlink } from "react-icons/ri";
 import { LinkMenu } from "./styles";
+import * as Popover from "@radix-ui/react-popover";
 
 export default function LinkSelector({ open, setOpen }) {
   const { editor } = useCurrentEditor();
@@ -11,8 +12,8 @@ export default function LinkSelector({ open, setOpen }) {
   }
 
   return (
-    <>
-      <button
+    <Popover.Root open={open}>
+      <Popover.Trigger
         onClick={() => {
           if (editor.getAttributes("link").href) {
             editor.commands.unsetLink();
@@ -28,9 +29,9 @@ export default function LinkSelector({ open, setOpen }) {
         ) : (
           <RiLink size={16} />
         )}
-      </button>
+      </Popover.Trigger>
 
-      {open && (
+      <Popover.Content>
         <LinkMenu
           onSubmit={(e) => {
             e.preventDefault();
@@ -44,7 +45,7 @@ export default function LinkSelector({ open, setOpen }) {
         >
           <input placeholder="Insira a url..." autoFocus />
         </LinkMenu>
-      )}
-    </>
+      </Popover.Content>
+    </Popover.Root>
   );
 }

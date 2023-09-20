@@ -14,6 +14,7 @@ import {
   RiText,
 } from "react-icons/ri";
 import { TransformContainer } from "./styles";
+import * as Popover from "@radix-ui/react-popover";
 
 export default function NodeSelector({ open, setOpen }) {
   const { editor } = useCurrentEditor();
@@ -87,12 +88,6 @@ export default function NodeSelector({ open, setOpen }) {
       command: () => editor.chain().focus().toggleCodeBlock().run(),
       isActive: () => editor.isActive("codeBlock"),
     },
-    {
-      name: "Imagem",
-      icon: <RiCodeLine size={12} />,
-      command: () => editor.chain().focus().toggleCodeBlock().run(),
-      isActive: () => editor.isActive("codeBlock"),
-    },
   ];
 
   const activeItem = items.filter((item) => item.isActive()).pop() ?? {
@@ -101,17 +96,17 @@ export default function NodeSelector({ open, setOpen }) {
 
   return (
     <TransformContainer>
-      <button
-        className="tool-button"
-        onClick={() => setOpen(!open)}
-        title="Modificar bloco"
-      >
-        <span>{activeItem?.name}</span>
-        <RiArrowDownSLine size={16} />
-      </button>
+      <Popover.Root open={open}>
+        <Popover.Trigger
+          className="tool-button"
+          onClick={() => setOpen(!open)}
+          title="Modificar bloco"
+        >
+          <span>{activeItem?.name}</span>
+          <RiArrowDownSLine size={16} />
+        </Popover.Trigger>
 
-      {open && (
-        <div className="dropdown">
+        <Popover.Content className="dropdown">
           {items.map((item) => (
             <button
               key={item.name}
@@ -128,8 +123,8 @@ export default function NodeSelector({ open, setOpen }) {
               {item.isActive() && <RiCheckLine size={14} />}
             </button>
           ))}
-        </div>
-      )}
+        </Popover.Content>
+      </Popover.Root>
     </TransformContainer>
   );
 }

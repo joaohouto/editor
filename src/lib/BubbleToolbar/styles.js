@@ -65,17 +65,13 @@ export const TransformContainer = styled.div`
   }
 
   .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-
     display: flex;
     flex-direction: column;
 
     width: 200px;
     background: var(--background);
     border-radius: 8px;
-    margin-top: 8px;
+    margin: 8px;
     padding: 4px;
     border: 1px solid var(--grayE);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
@@ -120,8 +116,6 @@ export const TransformContainer = styled.div`
 `;
 
 export const ColorContainer = styled.div`
-  position: relative;
-
   .tool-button {
     height: 32px;
     padding: 8px;
@@ -137,7 +131,7 @@ export const ColorContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 8px 8px 0 !important;
     border-left: 1px solid var(--grayE);
 
     &:hover {
@@ -155,10 +149,6 @@ export const ColorContainer = styled.div`
   }
 
   .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-
     display: flex;
     flex-direction: column;
 
@@ -168,7 +158,7 @@ export const ColorContainer = styled.div`
 
     background: var(--background);
     border-radius: 8px;
-    margin-top: 8px;
+    margin: 8px;
     padding: 4px;
     border: 1px solid var(--grayE);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
@@ -229,15 +219,11 @@ export const LinkMenu = styled.form`
   width: 100%;
   background: var(--background);
   border-radius: 8px;
-  margin-top: 8px;
+  margin: 8px;
   padding: 4px;
 
   border: 1px solid var(--grayE);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-
-  position: absolute;
-  top: 32px;
-  left: 0;
 
   > input {
     padding: 6px 12px;

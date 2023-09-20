@@ -1,6 +1,6 @@
 {
   "name": "@joaohouto/editor",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Rich text editor React component built with Tiptap",
   "license": "MIT",
   "author": "João Couto",
@@ -51,6 +51,7 @@
     }
   },
   "dependencies": {
+    "@radix-ui/react-popover": "^1.0.6",
     "@tiptap/core": "^2.1.7",
     "@tiptap/extension-code": "^2.1.7",
     "@tiptap/extension-color": "^2.1.8",
