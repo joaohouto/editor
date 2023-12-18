@@ -200,6 +200,7 @@ export const ColorContainer = styled.div`
         width: 24px;
         border-radius: 4px;
         background: var(--background);
+        border: 1px solid var(--grayE);
         font-size: 14px;
 
         font-weight: 500;

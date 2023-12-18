@@ -75,6 +75,8 @@ export const Container = styled.div`
           border-radius: 4px;
           transition: 0.2s ease;
 
+          margin-top: 2px;
+
           cursor: pointer;
 
           display: grid;
