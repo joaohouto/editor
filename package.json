@@ -1,6 +1,6 @@
 {
   "name": "@joaohouto/editor",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Rich text editor React component built with Tiptap",
   "license": "MIT",
   "author": "João Couto",
