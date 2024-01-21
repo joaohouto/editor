@@ -164,17 +164,21 @@ export const Container = styled.div`
   }
 
   .image {
-    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    width: fit-content;
+
+    border-radius: 4px;
+
     > img {
       border-radius: 4px;
-
-      width: 100%;
-      max-width: 400px;
+      border: 1px solid var(--grayD);
     }
   }
 `;

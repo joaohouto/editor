@@ -1,15 +1,16 @@
 import { Toaster } from "react-hot-toast";
 import { Editor } from "./lib";
-
-const content = ``;
+import { useLocalState } from "./localState";
 
 function App() {
+  const [data, setData] = useLocalState("@Editor", "");
+
   return (
     <div>
       <Toaster />
       <Editor
-        defaultContent={content}
-        onUpdate={({ editor }) => console.log(editor.getHTML())}
+        defaultContent={data}
+        onUpdate={({ editor }) => setData(editor.getHTML())}
         placeholder="Comece a escrever..."
       />
     </div>

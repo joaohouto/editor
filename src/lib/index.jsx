@@ -80,6 +80,8 @@ function Editor({ defaultContent, onUpdate, placeholder, imageUploader }) {
       >
         <BubbleToolbar />
       </EditorProvider>
+
+      <div className="mobile-toolbar"></div>
     </Container>
   );
 }

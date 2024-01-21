@@ -8,6 +8,7 @@ import {
   RiH1,
   RiH2,
   RiH3,
+  RiImage2Line,
   RiListOrdered,
   RiListUnordered,
   RiQuoteText,
@@ -87,6 +88,13 @@ export default function NodeSelector({ open, setOpen }) {
       icon: <RiCodeLine size={12} />,
       command: () => editor.chain().focus().toggleCodeBlock().run(),
       isActive: () => editor.isActive("codeBlock"),
+    },
+
+    {
+      name: "Imagem",
+      icon: <RiImage2Line size={12} />,
+      command: () => editor.chain().focus(),
+      isActive: () => editor.isActive("image"),
     },
   ];
 

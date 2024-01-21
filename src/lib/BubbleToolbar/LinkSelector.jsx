@@ -4,6 +4,15 @@ import { RiLink, RiLinkUnlink } from "react-icons/ri";
 import { LinkMenu } from "./styles";
 import * as Popover from "@radix-ui/react-popover";
 
+export function isValidUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 export default function LinkSelector({ open, setOpen }) {
   const { editor } = useCurrentEditor();
 
@@ -38,6 +47,7 @@ export default function LinkSelector({ open, setOpen }) {
             const href = e.target[0].value;
 
             if (!href) return;
+            if (!isValidUrl(href)) return;
 
             editor.commands.setLink({ href });
             setOpen(false);

@@ -1,6 +1,6 @@
 {
   "name": "@joaohouto/editor",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Rich text editor React component built with Tiptap",
   "license": "MIT",
   "author": "João Couto",
@@ -74,8 +74,10 @@
     "@tiptap/suggestion": "^2.1.7",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
+    "react-moveable": "^0.56.0",
     "styled-components": "^6.0.7",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "tiptap-extension-resize-image": "^1.0.3"
   },
   "devDependencies": {
     "@testing-library/dom": "^9.3.1",
