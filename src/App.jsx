@@ -12,6 +12,7 @@ function App() {
         defaultContent={data}
         onUpdate={({ editor }) => setData(editor.getHTML())}
         placeholder="Comece a escrever..."
+        showMobileToolbar={true}
       />
     </div>
   );

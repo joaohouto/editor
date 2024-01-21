@@ -20,8 +20,15 @@ import BubbleToolbar from "./BubbleToolbar";
 import Commands from "./suggestion/commands";
 import getSuggestionItems from "./suggestion/items";
 import renderItems from "./suggestion/renderItems";
+import FixedToolbar from "./FixedToolbar";
 
-function Editor({ defaultContent, onUpdate, placeholder, imageUploader }) {
+function Editor({
+  defaultContent,
+  onUpdate,
+  placeholder,
+  imageUploader,
+  showMobileToolbar,
+}) {
   const extensions = [
     StarterKit,
     Typography,
@@ -78,10 +85,8 @@ function Editor({ defaultContent, onUpdate, placeholder, imageUploader }) {
           onUpdate(data);
         }}
       >
-        <BubbleToolbar />
+        {showMobileToolbar ? <FixedToolbar /> : <BubbleToolbar />}
       </EditorProvider>
-
-      <div className="mobile-toolbar"></div>
     </Container>
   );
 }
